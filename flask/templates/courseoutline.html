@@ -1,0 +1,201 @@
+<link rel="stylesheet" href="/static/style.css">
+<DOCTYPE html>
+    <html>
+        
+    <title>2022-2023 Introduction to Programming</title>
+    
+    <body>
+      <div id="header-grid">
+        <div><h1>2022-2023 Introduction to Programming</h1></div>
+    
+        <div><img src = "/static/lion.png" alt="Dryden Central School District logo of a purple lion"></div>
+      </div>
+      <hr>
+      <div class="plain-text">
+      <div><h2>Course Description:</h2></div>
+    
+        <div class="paragraph">The purpose of this course is to introduce students to programming in a 
+        high-level text-based language. Students will learn fundamental concepts 
+        of computer programming, as well as essential practices for collaborative 
+        program design and development. The language used in this class will be Python.</div>
+        <div></div>
+      </div>
+      <hr>
+      <div class="plain-text">
+      <div><h2>Required Materials:</h2></div>
+    
+        <div class="paragraph"><ul>
+            {%for item in data['materials']%}
+            <li>{{item}}</li>
+            {% endfor %}
+        </ul>
+    
+        <p>This is a computer programming course, but students will not work exclusively
+        on the computer. Written notes will be included for most topics, and some assignments
+        will have written components or may be entirely on paper.</p>
+    
+        <p>This course will use Visual Studio Code for programming with the Python extension
+        and the additional package ipykernel, as well as the Python software itself. All of 
+        this software is free and open source.</p></div>
+        <div></div>
+      </div>
+      <hr>
+      <div class="plain-text">
+      <div><h2>Extra Help:</h2></div>
+    
+        <div class="paragraph">I will generally be available during Activity Period each day. Other times may be
+        arranged as necessary. If you have questions or would like extra help, it is your
+        responsibility to come and ask. We can make arrangements for extra helpby appointment
+        at the following times:</div>
+        <div></div>
+        <div></div>
+        <div class = "paragraph"><ul>
+            {%for item in data['avail']%}
+            <li>{{item}}</li>
+            {%endfor%}
+        </ul></div>
+        </div>
+      <hr>
+      <div class="plain-text">
+      <div><h2>Attendance:</h2></div>
+    
+        <div class="paragraph">If you are absent you are responsible for making up missed work. Assignments will be
+        posted on Google Classroom; students can access directions and files for assignments
+        there. Students can also contact me via email at any time. Missed work is required to 
+        be made up no later than the number of days returning to school equivalent to the
+        number of days absent. (Example: If you are absent for two days you have two days to 
+        make up the missed work upon returning. Exceptions may be made upon request after
+        extended absences.)</div>
+        <div></div>
+      </div>
+      <hr>
+      <div class="plain-text">
+      <div><h2>Grading Procedure:</h2></div>
+    
+        <div class="paragraph"><p>This course will be graded in part by proficiency with each topic and in part by
+        successful completion of programs and projects. The categories are as follows:</p>
+    
+        <b>Collaborative Proficiency</b> (<i>30% of marking period average</i>)
+        <br>
+        <b>Individual Proficiency</b> (<i>30% of marking period average</i>)
+        <br>
+        <b>Programs and Projects</b> (<i>30% of marking period average</i>)
+        <br>
+        <b>Participation</b> (<i>10% of marking period average</i>)
+    
+    
+    
+        <h3>Proficiency:</h3>
+    
+        <p>The Proficiency categories will be an assessment of proficiency level with each
+        concept in the course. Together they make up 60% of your overall average.</p>
+    
+        <p>Collaborative Proficiency grades will be based on collaborative assignments;
+        group work is an essential component of this course, as programming is rarely a
+        solo endeavor. The finished product in collaborative assignments wll be evaluated
+        to determine the group members' proficiency level with the concepts addressed.
+        Individual Proficiency will be assessed similarly, but based on individual projects
+        and assessments.</p>
+    
+        Proficiency grades will be determined according to the following rubric:
+        <table>
+          <tr>
+            <th>Score</th>
+            <th>Progression Toward Mastery</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>Work not sumbitted or little work attempted on this concept</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Demonstrates limited proficiency with concept</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Approaching proficiency with concept (demonstrates partial understanding)</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Proficient with concept (demonstrates understanding, can apply the concept without errors)</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Demonstrates mastery of concept (can explain it to others and apply it in new ways</td>
+          </tr>
+        </table>
+    
+        <h3>Programs and Projects</h3>
+    
+        You will complete several projects over the course of the semester. They will vary in length
+        and complexity; larger and more complex projects will be worth more within this category.
+        Each will be scored based on a rubric that will be provided to you at the start of the assignment.
+    
+        <h3>Participation</h3>
+    
+        The Participation category will include a variety of different assignment types. These may
+        include but are not limited to:
+    
+        <ul>
+          <li>Completing class notes</li>
+          <li>Contributing to in-class group work tasks</li>
+          <li>Paper assignments (may also be considered in assessing proficiency)</li>
+        </ul>
+    
+        Each participation assignment will be scored out of 2 points using the following scale.
+    
+        <table>
+          <tr>
+            <th>Score</th>
+            <th>Meaning</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>work not submitted or little work attempted</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>partially complete</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>complete</td>
+          </tr>
+        </table>
+        </div>
+      </div>
+      <hr>
+      <div class="plain-text">
+    
+        <div><h2>Course Outline</h2></div>
+    
+        <div class="paragraph">
+        <table>
+            {%for unit in data['units'].keys()%}
+            <tr>
+                <td valign="top">{{unit}}</td>
+                <td>{{data['units'][unit]['title']}}<br>
+                <ul>
+                    {%for topic in data['units'][unit]['topics']%}
+                    <li>{{topic}}</li>
+                    {%endfor%}
+                </ul>
+                </td>
+            </tr>
+            {%endfor%}
+            </table>
+        </div>
+        <div></div>
+      </div>
+    
+      <hr>
+      <div class="plain-text">
+    
+        <div><h2>Student Agreement</h2></div>
+    
+        <div class="paragraph"><p>To sign that you have read and understood this 
+            agreement, click <a href="signatures">here</a>.
+        </p>
+      </div>
+    </body>
+    </html>
