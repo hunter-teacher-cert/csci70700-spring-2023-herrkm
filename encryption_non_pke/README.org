@@ -1,3 +1,8 @@
+# Notes on submission:
+* caesar.py contains part 1 of the homework.
+* transpose.py contains part 2 of the homework.
+* message.txt contains the provided encrypted message for caesar.py.
+
 * Instructions
 
 ** If you are presenting this unit:
