@@ -31,7 +31,7 @@
           <div><h1>Student Agreement:</h1></div>   
           <div class="paragraph"><p>By entering your name and the date into the fields below, you are acknowledging that
           you have read and understood the course outline.</p>
-            <form class= "boxed" action="{{url_for('signatures')}}" method="post">
+            <form class= "boxed" method="post">
               {%if signed%}
               <div id="overlay">You have already signed this form.</div>
               {%endif%}
@@ -42,19 +42,15 @@
               I understand that I should contact my teacher with any questions. </text>
               <br><br>
               <text>Signature: </text> <input name = "signature" required="True"> <text>&emsp;
-                Date: </text> <input name = "date" required="True" placeholder = "mm/dd/yyyy"> <input type="submit" value = "Submit"></button>
+                Date: </text> <input name = "date" required="True" placeholder = "mm/dd/yyyy"> <input name = "sign" type="submit" value = "Submit"></button>
             </form>
           </div>
           <div></div>
         </div>
         <div></div>
         <hr>
-      <div><h1>Current Roster:</h1></div>
-      <div><ul>
-          {%for name in names%}
-          <li>{{name[1]}} {{name[0]}}</li>
-          {%endfor%}
-      </ul></div>
+      <div><a href="/roster">View Current Roster</a></div>
+
       <div><a href="/">Return to Course Outline</a></div>
       </body>
     

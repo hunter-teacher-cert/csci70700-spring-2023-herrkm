@@ -1,0 +1,31 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title>Current Roster</title>
+        <link rel="stylesheet" href="/static/style.css">
+      </head>
+    <body>
+        <div><h1>Current Roster:</h1></div>
+        {% if authorized %}
+        <div><ul>
+            {%for name in names%}
+            <li>{{name[1]}} {{name[0]}}</li>
+            {%endfor%}
+        </ul></div>
+      {% else %}
+        <div>
+          Sign in to see this content.
+          <form class = "boxed" method = "post">
+            Username: <input name = "username" required = True>
+            <br>
+            Password: <input name = "password" required = True type = password>
+            <br>
+            <button type = "submit">Submit</button>
+          </form>
+        </div>
+      {% endif %}
+
+      <div><a href="/">Return to Course Outline</a></div>
+    </body>
+</html>
+
