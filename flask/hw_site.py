@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, request, url_for
+from flask import Flask, render_template, session, request
 import random
 
 app = Flask(__name__)
@@ -65,7 +65,7 @@ data = {
             ]
         },
     },
-    "roster": [("Sawyer", "Tom"), ("Finn", "Huckleberry")]
+    "roster": [("Sawyer", "Tom"), ("Finn", "Huckleberry")],
 }
 
 
@@ -80,22 +80,24 @@ def about():
 @app.route('/signatures', methods = ['GET', 'POST'])
 def signatures():
     session.setdefault('signed', False)
-    if request.method == 'POST':
-        if request.form['first name'] and request.form['last name'] and request.form['signature'] and request.form['date']:
-            first, last = request.form['first name'], request.form['last name']
-            student = (last, first)
-            if student not in data['roster']:
-                data['roster'].append(student)
-            session['signed'] = True
-    return render_template("signatures.html", signed = session['signed'], names = data["roster"])
+    
+    if request.method == "POST":
+        first, last = request.form['first name'], request.form['last name']
+        student = (last, first)
+        if student not in data['roster']:
+            data['roster'].append(student)
+        session['signed'] = True
+    return render_template("signatures.html", signed = session['signed'])
+        
 
-@app.route('/temp_demo')
-def temp_demo():
-    data = {"l": ["one", "one and a half", "two", "three"], 
-    "first":"Humphrey", 
-    "last": "Bogart"}
-    print(data)
-    return render_template("template_demo.html", name = "Snoopy", d = data, r = random.randrange(100))
+@app.route('/roster', methods = ['GET', 'POST'])
+def roster():
+    session.setdefault('authorized', False)
+    if request.method == 'POST':
+        if request.form["username"] == "herrkm" and request.form["password"] == "SecretPassword":
+            session["authorized"] = True
+    return render_template("roster.html", names = data["roster"], authorized = session["authorized"])
+
 
 # keep this at the end!
-app.run(host='0.0.0.0', port=8080)
+app.run(host = '0.0.0.0', port = 8080, debug = True)
